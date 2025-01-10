@@ -90,6 +90,31 @@ const routes = [
         element: lazy(() => import('./views/blogs/EditBlog'))
       },
       {
+        exact: 'true',
+        path: '/general-events',
+        element: lazy(() => import('./views/general-events/GeneralEvents'))
+      },
+      {
+        exact: 'true',
+        path: '/general-events/add',
+        element: lazy(() => import('./views/general-events/AddGeneralEvent'))
+      },
+      {
+        exact: 'true',
+        path: '/edit/general-events/:slug',
+        element: lazy(() => import('./views/general-events/EditGeneralEvent'))
+      },
+      {
+        exact: 'true',
+        path: '/gallery',
+        element: lazy(() => import('./views/gallery/Gallery'))
+      },
+      {
+        exact: 'true',
+        path: '/gallery/add',
+        element: lazy(() => import('./views/gallery/AddGallery'))
+      },
+      {
         path: '*',
         exact: 'true',
         element: () => <Navigate to={BASE_URL} />

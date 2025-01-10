@@ -115,6 +115,15 @@ export default function TextEditor({ defaultValue, pageData, setBtnDisabled, set
                 ContentDetailId: pageData?.blogDetails?.ContentDetailId
               }
             })
+          : contentSlug === 'generalEventDetails'
+            ? setFormData({
+                ...formData,
+                generalEventDetails: {
+                  ...formData.generalEventDetails,
+                  ContentDescription: editor.getData(),
+                  ContentDetailId: pageData?.generalEventDetails?.ContentDetailId
+                }
+              })
           : contentSlug !== 'eventAgenda' &&
             setFormData((prevState) => ({
               ...prevState,
@@ -270,6 +279,7 @@ export default function TextEditor({ defaultValue, pageData, setBtnDisabled, set
       contentSlug === 'servicePrograms' ||
       contentSlug === 'studyDetails' ||
       contentSlug === 'blogDetails' ||
+      contentSlug === 'generalEventDetails' ||
       contentSlug === 'privacy' ||
       contentSlug === 't&c' ||
       contentSlug === 'about'
@@ -318,6 +328,7 @@ export default function TextEditor({ defaultValue, pageData, setBtnDisabled, set
                     contentSlug === 'servicePrograms' ||
                     contentSlug === 'studyDetails' ||
                     contentSlug === 'blogDetails' ||
+                    contentSlug === 'generalEventDetails' ||
                     contentSlug === 'privacy' ||
                     contentSlug === 't&c' ||
                     contentSlug === 'careers' ||

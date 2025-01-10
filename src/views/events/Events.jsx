@@ -1,10 +1,11 @@
 import axios from 'axios';
 import Pagination from 'components/Pagination';
 import moment from 'moment';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row, Col, Card, Table } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import GeneralEvents from 'views/general-events/GeneralEvents' // Import the GeneralEvents componen
 
 let PageSize = 10;
 
@@ -44,9 +45,7 @@ const Events = () => {
     };
 
     getData();
-  }, []);
-
-  console.log('page data', pagesData);
+  }, []); 
 
   return (
     <React.Fragment>
@@ -105,6 +104,17 @@ const Events = () => {
                 currentPage={currentPage}
                 handlePagination={handlePagination}
               />
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+
+      {/* Add the GeneralEvents table below the Events table */}
+      <Row>
+        <Col>
+          <Card>
+            <Card.Body>
+              <GeneralEvents />  {/* Render the GeneralEvents component */}
             </Card.Body>
           </Card>
         </Col>

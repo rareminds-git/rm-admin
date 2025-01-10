@@ -49,6 +49,15 @@ export const getBlogData = (data) => {
   return updatedData;
 };
 
+export const getGeneralEventData = (data) => {
+  let updatedData = {};
+
+  updatedData.pageData = data.generalEventData;
+  updatedData['generalEventDetails'] = data.generalEventDetails[0];
+
+  return updatedData;
+};
+
 export const getStudyDetail = (data) => {
   let updatedData = {};
   console.log('data', data);

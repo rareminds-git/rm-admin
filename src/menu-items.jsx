@@ -47,6 +47,13 @@ const menuItems = {
           type: 'item',
           icon: '',
           url: '/contacts'
+        },
+        {
+          id: 'gallery',
+          title: 'Gallery',
+          type: 'item',
+          icon: '',
+          url: '/gallery'
         }
       ]
     },

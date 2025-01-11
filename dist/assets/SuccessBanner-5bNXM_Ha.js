@@ -1,1 +1,0 @@
-import{j as s}from"./index-CpFmk86o.js";import{A as e}from"./Alert-B-JUCmsd.js";function t(){return s.jsx(s.Fragment,{children:s.jsx(e,{className:"successMessageAlert",variant:"success",children:"Data Submitted Successfully."},"success")})}export{t as S};

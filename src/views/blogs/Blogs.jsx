@@ -8,6 +8,66 @@ import { useNavigate } from 'react-router-dom';
 
 let PageSize = 10;
 
+
+// const deleteBlogItem = async (contentId) => {
+//   try {
+//       const response = await fetch(`http://localhost:6069/delete-content/${contentId}`, {
+//           method: 'DELETE',
+//       });
+//       if (!response.ok) {
+//           const errorData = await response.json();
+//           console.error("Error deleting blog item:", errorData);
+//           alert(`Error: ${errorData.message || 'Unknown error'}`);
+//           return;
+//       }
+//       const data = await response.json();
+//       console.log("Blog item deleted:", data);
+//       alert("Blog deleted successfully!");
+//   } catch (error) {
+//       console.error("Network error:", error);
+//       alert("Failed to delete. Please check the server.");
+//   }
+// };
+
+
+const deleteBlogItem = async (contentId) => {
+
+  
+  // try {
+  //   const response = await fetch(`http://localhost:6069/delete-content/${contentId}`, {
+  //       method: 'DELETE',
+  //   });
+
+  try {
+    const API_URL = import.meta.env.VITE_API_URL; // Load API URL from .env
+    const response = await fetch(`${API_URL}delete-content/${contentId}`, {  // Removed the extra slash here
+      method: 'DELETE',
+    });
+  
+
+
+    if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error deleting blog item:", errorData);
+        alert(`Error: ${errorData.message || 'Unknown error'}`);
+        return;
+    }
+
+    alert("✅ Blog deleted successfully!");
+
+    // 🔄 Automatically refresh the page after deletion
+    window.location.reload();
+
+} catch (error) {
+    console.error("Network error:", error);
+    alert("❌ Failed to delete. Please check the server.");
+}
+};
+
+
+
+
+
 const Blogs = () => {
   const { slug } = useParams();
   const [pagesData, setPagesData] = useState();
@@ -85,6 +145,15 @@ const Blogs = () => {
                           <button onClick={() => navigate(`/edit/blog/${data.ContentSlug}`)} className="btn btn-primary">
                             Edit
                           </button>
+                        </td>
+                        <td>
+                        {/* <button onClick={() => deleteGalleryItem(data.ImageURL)} className="btn btn-primary">
+                            <FaTrash />
+                          </button> */}
+                        <button onClick={() => deleteBlogItem(data.ContentId)} className="btn btn-primary">
+                            Delete
+                        </button>
+
                         </td>
                       </tr>
                     );

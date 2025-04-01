@@ -31,15 +31,20 @@ let PageSize = 10;
 
 
 const deleteBlogItem = async (contentId) => {
+
+  
   // try {
   //   const response = await fetch(`http://localhost:6069/delete-content/${contentId}`, {
   //       method: 'DELETE',
   //   });
+
   try {
     const API_URL = import.meta.env.VITE_API_URL; // Load API URL from .env
-    const response = await fetch(`${API_URL}/delete-content/${contentId}`, {
+    const response = await fetch(`${API_URL}delete-content/${contentId}`, {  // Removed the extra slash here
       method: 'DELETE',
     });
+  
+
 
     if (!response.ok) {
         const errorData = await response.json();

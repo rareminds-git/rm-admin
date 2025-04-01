@@ -271,6 +271,12 @@ const Services = () => {
                             Edit
                           </button>
                         </td>
+                        <td>
+                         <button onClick={() => navigate('/add')} className="btn btn-primary">
+                           Add
+                         </button>
+                       </td>
+
                       </tr>
                     );
                   })}
